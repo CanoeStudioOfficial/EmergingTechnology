@@ -379,4 +379,59 @@ config.emergingtechnology.electrics.biomass.title=生物质发电机
 config.emergingtechnology.electrics.piezoelectric.title=压电发电机
 config.emergingtechnology.electrics.battery.title=电池
 config.emergingtechnology.electrics.wind.title=风力发电机
-config.emergingtechnology.electrics.optimiser.title=Algorithmic Optimizer
+config.emergingtechnology.electrics.optimiser.title=算法优化器
+
+# JEI machine information
+jei.emergingtechnology.harvester.info=收获成熟作物并收集掉落物，也可以从输入槽种植支持的作物。
+jei.emergingtechnology.filler.info=生成并向相邻的流体容器传输已配置的流体。
+jei.emergingtechnology.diffuser.info=消耗允许的气体和能量，加速附近植物生长。
+jei.emergingtechnology.piezoelectric.info=通过方块互动和环境活动产生能量。
+jei.emergingtechnology.tidal.info=利用附近水体运动产生能量。
+jei.emergingtechnology.solar.info=利用阳光产生能量。
+jei.emergingtechnology.solarglass.info=用于太阳能发电结构的透明太阳能组件。
+jei.emergingtechnology.wind.info=利用可用的风力空间产生能量。
+jei.emergingtechnology.battery.info=储存能量并向连接的机器传输能量。
+jei.emergingtechnology.hydroponic.info=为支持的作物提供种植床，需要水、有效培养介质和合适的农业输入。
+jei.emergingtechnology.light.info=接受支持的灯泡，为附近的水培作物提供人工光照。
+jei.emergingtechnology.scrubber.info=过滤允许的气体并处理固体输入，气体列表可以通过 CraftTweaker 扩展。
+jei.emergingtechnology.injector.info=将支持的物品或流体注入农业流程，有效的物品转换请查看注射器配方分类。
+jei.emergingtechnology.processor.info=消耗能量将注册的输入加工为输出，物品和矿辞配方显示在加工机分类中。
+jei.emergingtechnology.shredder.info=将支持的废料切碎为可回收材料，物品和矿辞配方显示在切碎机分类中。
+jei.emergingtechnology.fabricator.info=使用物品或矿辞输入制造输出，配方消耗量和选择数量显示在制造机分类中。
+jei.emergingtechnology.collector.info=收集已注册的废料并回收有用材料，部分回收结果会随机选择。
+jei.emergingtechnology.cooker.info=使用类似熔炉的配方烹饪支持的食物，配方显示在太阳能烤箱分类中。
+jei.emergingtechnology.bioreactor.info=将生物输入转换为合成产物，有效转换显示在生物组织反应机分类中。
+jei.emergingtechnology.scaffolder.info=使用脚手架和支持的样本制造合成产物，脚手架槽与配方输入槽分开。
+jei.emergingtechnology.algaebioreactor.info=使用物品输入培养藻类，需要有效的气体和流体输入，有效物品转换会显示在 JEI 中。
+jei.emergingtechnology.optimiser.info=使用可配置的核心数量优化注册的输入，有效输入显示在算法优化器分类中。
+
+jei.recipe.processor.info=加工机将支持的输入转换为显示的输出。输入可以是物品或矿辞，运行时需要消耗能量。
+jei.recipe.shredder.info=切碎机将废料和其他支持的物品分解为可回收材料，产物数量会显示在输出槽中。
+jei.recipe.cooker.info=太阳能烤箱使用类似熔炉的食物配方，将左侧列出的食物输入加工为右侧的熟食输出。
+jei.recipe.fabricator.info=制造机使用物品或矿辞输入制造显示的物品，配方消耗量和选择数量由配方决定。
+jei.recipe.bioreactor.info=生物组织反应机将生物输入转换为合成产物，左侧输入会被消耗并在右侧生成产物。
+jei.recipe.scaffolder.info=生物组织合成机需要有效的脚手架，并结合列出的样本输入生成输出。脚手架放置在独立的槽位中。
+jei.recipe.collector.info=海洋垃圾收集器处理已注册的废料输入并回收有用材料，部分回收结果会从已注册条目中随机选择。
+jei.recipe.biomass.info=生物质发电机消耗列出的生物质燃料来发电，该配方不会生成物品输出。
+jei.recipe.scrubber.info=洗涤器处理有效的气体和物品输入，清除污染并生成显示的固体产物，默认支持二氧化碳相关气体。
+jei.recipe.algaebioreactor.info=藻类生物反应机使用列出的物品输入培养藻类，同时需要机器已配置的有效气体和流体。
+jei.recipe.injector.info=营养注射器消耗列出的输入并将其注入机器流程，生成显示的输出，运行时可能还需要能量和流体。
+jei.recipe.light.info=水培生长灯接受列出的灯泡物品作为光源，为附近的水培作物提供人工光照。
+jei.recipe.hydroponic.info=水培生长床接受列出的培养介质，为支持的作物提供种植区域，并配合水和营养物质促进生长。
+jei.recipe.optimiser.info=算法优化器注册物品或矿辞输入进行优化，所需核心数量由配方决定，并提升兼容流程的处理效果。
+
+# Aquaponic blocks
+item.emergingtechnology.aquaponicblock.name=水产养殖框架
+item.emergingtechnology.aquaponicglass.name=水产养殖玻璃
+item.emergingtechnology.aquaponicbase.name=水产养殖基座
+blocks.emergingtechnology.aquaponicblock.name=水产养殖框架
+blocks.emergingtechnology.aquaponicglass.name=水产养殖玻璃
+blocks.emergingtechnology.aquaponicbase.name=水产养殖基座
+tile.emergingtechnology.aquaponicblock.name=水产养殖框架
+tile.emergingtechnology.aquaponicglass.name=水产养殖玻璃
+tile.emergingtechnology.aquaponicbase.name=水产养殖基座
+
+# Configuration entries
+config.emergingtechnology.polymers.worldgen.title=世界生成
+config.emergingtechnology.electrics.solarglass.title=太阳能玻璃
+info.emergingtechnology.solar.description=在阳光下产生能量。

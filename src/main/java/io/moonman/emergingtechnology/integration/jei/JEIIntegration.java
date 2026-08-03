@@ -192,6 +192,19 @@ public class JEIIntegration implements IModPlugin {
         addMachineInfo(registry, ModBlocks.solarglass, "jei.emergingtechnology.solarglass.info");
         addMachineInfo(registry, ModBlocks.wind, "jei.emergingtechnology.wind.info");
         addMachineInfo(registry, ModBlocks.battery, "jei.emergingtechnology.battery.info");
+        addMachineInfo(registry, ModBlocks.hydroponic, "jei.emergingtechnology.hydroponic.info");
+        addMachineInfo(registry, ModBlocks.light, "jei.emergingtechnology.light.info");
+        addMachineInfo(registry, ModBlocks.scrubber, "jei.emergingtechnology.scrubber.info");
+        addMachineInfo(registry, ModBlocks.injector, "jei.emergingtechnology.injector.info");
+        addMachineInfo(registry, ModBlocks.processor, "jei.emergingtechnology.processor.info");
+        addMachineInfo(registry, ModBlocks.shredder, "jei.emergingtechnology.shredder.info");
+        addMachineInfo(registry, ModBlocks.fabricator, "jei.emergingtechnology.fabricator.info");
+        addMachineInfo(registry, ModBlocks.collector, "jei.emergingtechnology.collector.info");
+        addMachineInfo(registry, ModBlocks.cooker, "jei.emergingtechnology.cooker.info");
+        addMachineInfo(registry, ModBlocks.bioreactor, "jei.emergingtechnology.bioreactor.info");
+        addMachineInfo(registry, ModBlocks.scaffolder, "jei.emergingtechnology.scaffolder.info");
+        addMachineInfo(registry, ModBlocks.algaebioreactor, "jei.emergingtechnology.algaebioreactor.info");
+        addMachineInfo(registry, ModBlocks.optimiser, "jei.emergingtechnology.optimiser.info");
 
         EmergingTechnology.logger.info("Successfully registered with JEI.");
     }

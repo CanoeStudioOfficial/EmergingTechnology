@@ -4,6 +4,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import io.moonman.emergingtechnology.EmergingTechnology;
+import io.moonman.emergingtechnology.integration.jei.JEITextHelper;
 import io.moonman.emergingtechnology.integration.jei.machines.MachineReference;
 import mezz.jei.api.IGuiHelper;
 import mezz.jei.api.gui.IDrawable;
@@ -64,7 +65,7 @@ public class ProcessorCategory implements IRecipeCategory<ProcessorRecipeWrapper
 
     @Override
     public void drawExtras(@Nonnull Minecraft minecraft) {
-
+        JEITextHelper.drawDescription(minecraft, "jei.recipe.processor.info");
     }
 
     @Override

@@ -5,6 +5,7 @@ import javax.annotation.Nullable;
 
 import io.moonman.emergingtechnology.EmergingTechnology;
 import io.moonman.emergingtechnology.integration.jei.machines.MachineReference;
+import io.moonman.emergingtechnology.integration.jei.JEITextHelper;
 import mezz.jei.api.IGuiHelper;
 import mezz.jei.api.gui.IDrawable;
 import mezz.jei.api.gui.IGuiItemStackGroup;
@@ -65,7 +66,7 @@ public class ScaffolderCategory implements IRecipeCategory<ScaffolderRecipeWrapp
 
     @Override
     public void drawExtras(@Nonnull Minecraft minecraft) {
-
+        JEITextHelper.drawDescription(minecraft, "jei.recipe.scaffolder.info");
     }
 
     @Override
