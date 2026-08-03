@@ -2,6 +2,7 @@ package io.moonman.emergingtechnology.integration.crafttweaker;
 
 import crafttweaker.CraftTweakerAPI;
 import crafttweaker.api.item.IItemStack;
+import crafttweaker.api.oredict.IOreDictEntry;
 import io.moonman.emergingtechnology.EmergingTechnology;
 import io.moonman.emergingtechnology.integration.crafttweaker.machines.AlgaeBioreactor;
 import io.moonman.emergingtechnology.integration.crafttweaker.machines.Biomass;
@@ -66,24 +67,24 @@ public class CraftTweakerHelper {
 	}
 
 	public static IMachineRecipe getMachineRecipe(IItemStack output, Object input) {
-		if (input instanceof String) {
-			return new SimpleRecipe(CraftTweakerHelper.toStack(output), (String) input);
+		if (input instanceof IOreDictEntry) {
+			return new SimpleRecipe(CraftTweakerHelper.toStack(output), ((IOreDictEntry) input).getName());
 		} else {
 			return new SimpleRecipe(CraftTweakerHelper.toStack(output), CraftTweakerHelper.toStack((IItemStack)input));
 		}
 	}
 
 	public static FabricatorRecipe getFabricatorRecipe(IItemStack output, Object input, int count) {
-		if (input instanceof String) {
-			return new FabricatorRecipe(FabricatorRecipes.getRecipes().size() + 1, CraftTweakerHelper.toStack(output), (String) input, count);
+		if (input instanceof IOreDictEntry) {
+			return new FabricatorRecipe(FabricatorRecipes.getRecipes().size() + 1, CraftTweakerHelper.toStack(output), ((IOreDictEntry) input).getName(), count);
 		} else {
 			return new FabricatorRecipe(FabricatorRecipes.getRecipes().size() + 1, CraftTweakerHelper.toStack(output), CraftTweakerHelper.toStack((IItemStack)input));
 		}
 	}
 
 	public static OptimiserRecipe getOptimiserRecipe(Object input, int cores) {
-		if (input instanceof String) {
-			return new OptimiserRecipe((String) input, cores);
+		if (input instanceof IOreDictEntry) {
+			return new OptimiserRecipe(((IOreDictEntry) input).getName(), cores);
 		}
 		return new OptimiserRecipe(CraftTweakerHelper.toStack((IItemStack)input), cores);
 	}

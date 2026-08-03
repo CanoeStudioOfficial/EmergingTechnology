@@ -42,14 +42,14 @@ All classes are registered only when CraftTweaker is installed. Recipe changes a
 | `mods.emergingtechnology.Light` | `addRecipe(output, input)` | `removeRecipe(output)` / `removeAll()` | — |
 | `mods.emergingtechnology.Scrubber` | `addRecipe(output, input)` | `removeRecipe(output)` / `removeAll()` | — |
 
-`input` accepts either an item stack or an ore-dictionary name for every machine recipe API, including the Optimiser. Use an empty output only for machines whose built-in recipe model intentionally uses no item output, such as the default grow-bed and grow-light input lists.
+`input` accepts either an item stack or a standard CraftTweaker ore-dictionary entry (`<ore:...>`) for every machine recipe API, including the Optimiser. Use an empty output only for machines whose built-in recipe model intentionally uses no item output, such as the default grow-bed and grow-light input lists.
 
 Examples:
 
 ```zenscript
 mods.emergingtechnology.Processor.addRecipe(<minecraft:iron_ingot>, <minecraft:iron_ore>);
-mods.emergingtechnology.Fabricator.addRecipe(<minecraft:paper>, "paper", 1);
-mods.emergingtechnology.Optimiser.addRecipe("gemDiamond", 4);
+mods.emergingtechnology.Fabricator.addRecipe(<minecraft:paper>, <ore:paper>, 1);
+mods.emergingtechnology.Optimiser.addRecipe(<ore:gemDiamond>, 4);
 mods.emergingtechnology.AlgaeBioreactor.addGas("co2");
 mods.emergingtechnology.AlgaeBioreactor.addFluid("water");
 mods.emergingtechnology.Shredder.removeRecipe(<minecraft:paper>);
@@ -143,7 +143,7 @@ mods.emergingtechnology.Injector.removeRecipe(<minecraft:gold_ingot>);
 
 ```zenscript
 // Optimiser has a different signature: input item followed by required core count.
-mods.emergingtechnology.Optimiser.addRecipe("gemDiamond", 4);
+mods.emergingtechnology.Optimiser.addRecipe(<ore:gemDiamond>, 4);
 mods.emergingtechnology.Optimiser.removeRecipe(<minecraft:diamond>);
 mods.emergingtechnology.Optimiser.removeAll();
 ```
