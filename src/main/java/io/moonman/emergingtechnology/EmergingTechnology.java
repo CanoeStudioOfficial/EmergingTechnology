@@ -13,11 +13,11 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 
-@Mod(modid = EmergingTechnology.MODID, name = EmergingTechnology.NAME, version = EmergingTechnology.VERSION)
+@Mod(modid = Tags.MOD_ID, name = Tags.MOD_NAME, version = Tags.VERSION)
 public class EmergingTechnology {
-  public static final String MODID = "emergingtechnology";
-  public static final String NAME = "Emerging Technology";
-  public static final String VERSION = "1.3.21-beta";
+  public static final String MODID = Tags.MOD_ID;
+  public static final String NAME = Tags.MOD_NAME;
+  public static final String VERSION = Tags.VERSION;
 
   public static final TechnologyTab TECHNOLOGYTAB = new TechnologyTab("technologytab");
 
