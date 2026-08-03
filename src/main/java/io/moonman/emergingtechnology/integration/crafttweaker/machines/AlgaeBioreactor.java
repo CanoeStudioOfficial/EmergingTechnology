@@ -100,4 +100,60 @@ public class AlgaeBioreactor
 			return "Removing all Algae Bioreactor Recipes";
 		}
 	}
+
+	@ZenMethod
+	public static void addGas(String gasName)
+	{
+		CraftTweakerAPI.apply(new AddGas(gasName));
+	}
+
+	private static class AddGas implements IAction
+	{
+		private final String gasName;
+
+		private AddGas(String gasName)
+		{
+			this.gasName = gasName;
+		}
+
+		@Override
+		public void apply()
+		{
+			AlgaeBioreactorRecipes.addGas(gasName);
+		}
+
+		@Override
+		public String describe()
+		{
+			return "Adding Algae Bioreactor gas input " + gasName;
+		}
+	}
+
+	@ZenMethod
+	public static void addFluid(String fluidName)
+	{
+		CraftTweakerAPI.apply(new AddFluid(fluidName));
+	}
+
+	private static class AddFluid implements IAction
+	{
+		private final String fluidName;
+
+		private AddFluid(String fluidName)
+		{
+			this.fluidName = fluidName;
+		}
+
+		@Override
+		public void apply()
+		{
+			AlgaeBioreactorRecipes.addFluid(fluidName);
+		}
+
+		@Override
+		public String describe()
+		{
+			return "Adding Algae Bioreactor fluid input " + fluidName;
+		}
+	}
 }

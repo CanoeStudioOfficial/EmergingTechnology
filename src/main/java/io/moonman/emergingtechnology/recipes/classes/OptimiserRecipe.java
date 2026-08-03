@@ -11,6 +11,11 @@ public class OptimiserRecipe extends SimpleRecipe {
         this.cores = cores;
 	}
 
+	public OptimiserRecipe(String input, int cores) {
+		super(ItemStack.EMPTY, input);
+		this.cores = cores;
+	}
+
 	public int getCores() {
         return this.cores;
 	}

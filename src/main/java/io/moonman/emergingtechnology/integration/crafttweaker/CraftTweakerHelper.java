@@ -6,12 +6,16 @@ import io.moonman.emergingtechnology.EmergingTechnology;
 import io.moonman.emergingtechnology.integration.crafttweaker.machines.AlgaeBioreactor;
 import io.moonman.emergingtechnology.integration.crafttweaker.machines.Biomass;
 import io.moonman.emergingtechnology.integration.crafttweaker.machines.Bioreactor;
+import io.moonman.emergingtechnology.integration.crafttweaker.machines.Collector;
 import io.moonman.emergingtechnology.integration.crafttweaker.machines.Cooker;
 import io.moonman.emergingtechnology.integration.crafttweaker.machines.Fabricator;
 import io.moonman.emergingtechnology.integration.crafttweaker.machines.Injector;
+import io.moonman.emergingtechnology.integration.crafttweaker.machines.Hydroponic;
+import io.moonman.emergingtechnology.integration.crafttweaker.machines.Light;
 import io.moonman.emergingtechnology.integration.crafttweaker.machines.Optimiser;
 import io.moonman.emergingtechnology.integration.crafttweaker.machines.Processor;
 import io.moonman.emergingtechnology.integration.crafttweaker.machines.Scaffolder;
+import io.moonman.emergingtechnology.integration.crafttweaker.machines.Scrubber;
 import io.moonman.emergingtechnology.integration.crafttweaker.machines.Shredder;
 import io.moonman.emergingtechnology.integration.crafttweaker.providers.Bulbs;
 import io.moonman.emergingtechnology.integration.ModLoader;
@@ -36,6 +40,10 @@ public class CraftTweakerHelper {
 		CraftTweakerAPI.registerClass(Biomass.class);
 		CraftTweakerAPI.registerClass(Bioreactor.class);
 		CraftTweakerAPI.registerClass(AlgaeBioreactor.class);
+		CraftTweakerAPI.registerClass(Collector.class);
+		CraftTweakerAPI.registerClass(Hydroponic.class);
+		CraftTweakerAPI.registerClass(Light.class);
+		CraftTweakerAPI.registerClass(Scrubber.class);
 		CraftTweakerAPI.registerClass(Cooker.class);
 		CraftTweakerAPI.registerClass(Fabricator.class);
 		CraftTweakerAPI.registerClass(Processor.class);
@@ -74,7 +82,10 @@ public class CraftTweakerHelper {
 	}
 
 	public static OptimiserRecipe getOptimiserRecipe(Object input, int cores) {
-			return new OptimiserRecipe(CraftTweakerHelper.toStack((IItemStack)input), cores);
+		if (input instanceof String) {
+			return new OptimiserRecipe((String) input, cores);
+		}
+		return new OptimiserRecipe(CraftTweakerHelper.toStack((IItemStack)input), cores);
 	}
 
 	/**
