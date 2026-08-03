@@ -198,12 +198,12 @@ Harvester, Filler, and Diffuser use independent behavior APIs rather than item r
 
 ```zenscript
 // Register vanilla crops by their seed item.
-mods.emergingtechnology.Harvester.registerCrop(<minecraft:wheat_seeds>, true);
-mods.emergingtechnology.Harvester.registerCrop(<minecraft:carrot>, true);
-mods.emergingtechnology.Harvester.registerCrop(<minecraft:potato>, true);
+mods.emergingtechnology.Harvester.registerCrop(<minecraft:wheat_seeds>);
+mods.emergingtechnology.Harvester.registerCrop(<minecraft:carrot>);
+mods.emergingtechnology.Harvester.registerCrop(<minecraft:potato>);
 
 // A mod crop can be registered with its seed item or block item.
-mods.emergingtechnology.Harvester.registerCrop(<modid:custom_crop_seed>, true);
+mods.emergingtechnology.Harvester.registerCrop(<modid:custom_crop_seed>);
 mods.emergingtechnology.Harvester.removeCrop(<minecraft:carrot>);
 mods.emergingtechnology.Harvester.removeAllCrops();
 
@@ -224,13 +224,13 @@ Examples for other farming mods:
 
 ```zenscript
 // Agricraft: register the Agricraft crop block.
-mods.emergingtechnology.Harvester.registerCrop(<agricraft:crop>, true);
+mods.emergingtechnology.Harvester.registerCrop(<agricraft:crop>);
 
 // Mystical Agriculture: register a seed item.
-mods.emergingtechnology.Harvester.registerCrop(<mysticalagriculture:inferium_seeds>, true);
+mods.emergingtechnology.Harvester.registerCrop(<mysticalagriculture:inferium_seeds>);
 
 // Actually Additions: use the crop block or seed item for the installed version.
-mods.emergingtechnology.Harvester.registerCrop(<actuallyadditions:block_canola>, true);
+mods.emergingtechnology.Harvester.registerCrop(<actuallyadditions:block_canola>);
 ```
 
 Registry names can vary between mod versions. Check the item or block ID shown by JEI before adding it. A harvested item such as wheat, tomato, or essence is not automatically a crop block; pass the crop block item or a seed item instead.

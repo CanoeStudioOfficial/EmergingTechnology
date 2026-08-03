@@ -56,11 +56,11 @@ public final class AgricultureTweaker {
     @ZenClass("mods.emergingtechnology.Harvester")
     public static class Harvester {
         @ZenMethod
-        public static void registerCrop(IItemStack crop, boolean replant) {
+        public static void registerCrop(IItemStack crop) {
             ItemStack stack = toStack(crop);
             Block block = Block.getBlockFromItem(stack.getItem());
             block = cropBlock(stack, block);
-            if (block != null) CraftTweakerAPI.apply(new CropAction(block, replant, true));
+            if (block != null) CraftTweakerAPI.apply(new CropAction(block, true));
         }
 
         @ZenMethod
@@ -68,7 +68,7 @@ public final class AgricultureTweaker {
             ItemStack stack = toStack(crop);
             Block block = Block.getBlockFromItem(stack.getItem());
             block = cropBlock(stack, block);
-            if (block != null) CraftTweakerAPI.apply(new CropAction(block, false, false));
+            if (block != null) CraftTweakerAPI.apply(new CropAction(block, false));
         }
 
         @ZenMethod
@@ -136,18 +136,16 @@ public final class AgricultureTweaker {
 
     private static class CropAction implements IAction {
         private final Block block;
-        private final boolean replant;
         private final boolean add;
 
-        CropAction(Block block, boolean replant, boolean add) {
+        CropAction(Block block, boolean add) {
             this.block = block;
-            this.replant = replant;
             this.add = add;
         }
 
         public void apply() {
             String name = block.getRegistryName().toString();
-            if (add) HARVESTER_CROPS.put(name, replant);
+            if (add) HARVESTER_CROPS.put(name, true);
             else HARVESTER_CROPS.remove(name);
         }
 
