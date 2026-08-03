@@ -1,48 +1,21 @@
-# <img src="images/Logo.png" alt="Emerging Technology" height="42" width="42"> Emerging Technology
-<p>A Minecraft mod exploring emerging technologies by MoonManModding</p>
+## TemplateDevEnv
+_For Kotlin see [TemplateDevEnvKt](https://github.com/CleanroomMC/TemplateDevEnvKt)_
 
-If you enjoyed this mod and want to support its development, please consider <a href="https://www.patreon.com/moonmanmodding">supporting me on Patreon!</a>
+Template workspace for modding Minecraft 1.12.2. Licensed under MIT, it is made for public use.
 
-# Requirements
-- Minecraft Version <b>1.12.2</b>
-- Forge
+This template runs on **Java 25**, **Gradle 9.2.1** + **[RetroFuturaGradle](https://github.com/GTNewHorizons/RetroFuturaGradle) 2.0.2** + **Forge 14.23.5.2847**.
 
-The mod was made with Forge version <b>14.23.5.2768</b>
+With **coremod and mixin support** that is easy to configure.
 
-# Download
-<a href="https://www.curseforge.com/minecraft/mc-mods/emerging-technology-hydroponics">Download at CurseForge</a>
+### Instructions:
 
-# Compatibility
-Emerging Technology works with the following mods:
+1. Click `use this template` at the top.
+2. Clone the repository that you have created with this template to your local machine.
+3. Make sure IDEA is using Java 25 for Gradle before you sync the project. Verify this by going to IDEA's `Settings > Build, Execution, Deployment > Build Tools > Gradle > Gradle JVM`.
+4. Open the project folder in IDEA. When prompted, click "Load Gradle Project" as it detects the `build.gradle`, if you weren't prompted, right-click the project's `build.gradle` in IDEA, select `Link Gradle Project`, after completion, hit `Refresh All` in the gradle tab on the right.
+5. Run gradle tasks such as `runClient` and `runServer` in the IDEA gradle tab, or use the auto-imported run configurations like `1. Run Client`.
 
-- Pam's HarvestCraft
-- Botania
-- Mystical Agriculture
-- OpenComputers (full support)
-- NuclearCraft
-- XNET
-- Thermal Series
-- Ender IO
-- AgriCraft (requires some setup)
-
-Untested but likely compatible:
-- Mekanism
-- BuildCraft
-
-Currently incompatible with power/crops:
-- IndustrialCraft 2 (will be added in future)
-
-The mod should be compatible with any mods whose plants implement IGrowable and IPlantable, but there are bound to be exceptions. If you are using a mod which does not appear to work with Grow Beds, please create a new Issue above.
-
-Most machines can also be integrated into OpenComputers. Take a look at the <a href="https://github.com/MoonManModding/EmergingTechnology/blob/master/examples/open-computers-example.lua">example program</a> for more details. 
-
-# Discord
-<a href="https://discord.gg/Nm3sMXF">Join and discuss!</a>
-
-# About 🔬
-
-This mod is in <b>beta</b>, and also my first mod, so please be patient if you find bugs. Post any problems in the Issues tab in this repository. Feel free to also add requests for future updates.
-
-I'm a freelance developer with bills to pay, but I will try to keep this mod as updated and bug-free as possible while adding new content. Kind thanks to r/feedthebeast for your support and feedback 😍
-
-
+### Notes:
+- Dependencies script in [gradle/scripts/dependencies.gradle](gradle/scripts/dependencies.gradle), explanations are commented in the file.
+- Publishing script in [gradle/scripts/publishing.gradle](gradle/scripts/publishing.gradle).
+- When writing Mixins on IntelliJ, it is advisable to use latest [MinecraftDev Fork for RetroFuturaGradle](https://github.com/eigenraven/MinecraftDev/releases).
