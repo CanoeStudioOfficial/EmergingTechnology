@@ -2,6 +2,8 @@ package io.moonman.emergingtechnology.helpers.machines;
 
 import java.util.List;
 
+import io.moonman.emergingtechnology.integration.crafttweaker.AgricultureTweaker;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemStack;
@@ -17,7 +19,8 @@ public class HarvesterHelper {
         if (block == null)
             return false;
 
-        if (block.getRegistryName().toString().equalsIgnoreCase("agricraft:crop")) {
+        if (block.getRegistryName().toString().equalsIgnoreCase("agricraft:crop")
+                || AgricultureTweaker.isRegisteredCrop(block)) {
             return true;
         }
 

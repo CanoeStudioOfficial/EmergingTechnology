@@ -3,6 +3,7 @@ package io.moonman.emergingtechnology.machines.filler;
 import io.moonman.emergingtechnology.config.EmergingTechnologyConfig;
 import io.moonman.emergingtechnology.handlers.fluid.FluidStorageHandler;
 import io.moonman.emergingtechnology.init.Reference;
+import io.moonman.emergingtechnology.integration.crafttweaker.AgricultureTweaker;
 import io.moonman.emergingtechnology.machines.classes.tile.MachineTileBase;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -15,6 +16,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.fluids.FluidRegistry;
+import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.FluidTank;
 import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
@@ -68,7 +70,10 @@ public class FillerTileEntity extends MachineTileBase {
     @Override
     public void cycle() {
         fillAdjacent();
-        this.fluidHandler.fillInternal(new FluidStack(FluidRegistry.WATER, Reference.FILLER_FLUID_CAPACITY), true);
+        Fluid fluid = AgricultureTweaker.getFillerFluid();
+        int rate = AgricultureTweaker.getFillerRate(fluid.getName(),
+                EmergingTechnologyConfig.HYDROPONICS_MODULE.FILLER.fillerFluidTransferRate);
+        this.fluidHandler.fillInternal(new FluidStack(fluid, Math.min(rate, Reference.FILLER_FLUID_CAPACITY)), true);
     }
 
     private void fillAdjacent() {

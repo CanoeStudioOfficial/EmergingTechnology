@@ -191,6 +191,29 @@ The Scrubber's gas acceptance is controlled separately by its machine logic. Its
 Each recipe-table class has its own `removeAll()` action, shown in that machine's example. Removing recipes from one machine does not affect any other machine.
 
 The machine classes are deliberately separate implementations. Several machines currently share the same basic item-recipe shape, but they write to different recipe registries and some have different signatures or extra inputs. Keeping them separate prevents a change to one machine's CRT API from silently changing another machine's behavior.
+
+#### Agricultural machine configuration
+
+Harvester, Filler, and Diffuser use independent behavior APIs rather than item recipe APIs:
+
+```zenscript
+// Register a crop block that the Harvester may recognize.
+mods.emergingtechnology.Harvester.registerCrop(<modid:custom_crop>, true);
+mods.emergingtechnology.Harvester.removeCrop(<modid:custom_crop>);
+mods.emergingtechnology.Harvester.removeAllCrops();
+
+// Allow Filler to generate and transfer a fluid at the requested rate.
+mods.emergingtechnology.Filler.allowFluid("nutrient", 250);
+mods.emergingtechnology.Filler.removeFluid("nutrient");
+mods.emergingtechnology.Filler.removeAllFluids();
+
+// Allow Diffuser to accept a gas and configure its agricultural effect.
+mods.emergingtechnology.Diffuser.allowGas("co2", 1.5, 8);
+mods.emergingtechnology.Diffuser.removeGas("co2");
+mods.emergingtechnology.Diffuser.removeAllGases();
+```
+
+`registerCrop` uses the crop block's normal Minecraft drop logic for maturity and harvesting. `allowFluid` adds a fluid source to the Filler and controls its transfer amount. `allowGas` adds a gas to the Diffuser's accepted gas list; the existing nozzle and growth logic remain active.
 - Dependencies script in [gradle/scripts/dependencies.gradle](gradle/scripts/dependencies.gradle), explanations are commented in the file.
 - Publishing script in [gradle/scripts/publishing.gradle](gradle/scripts/publishing.gradle).
 - When writing Mixins on IntelliJ, it is advisable to use latest [MinecraftDev Fork for RetroFuturaGradle](https://github.com/eigenraven/MinecraftDev/releases).

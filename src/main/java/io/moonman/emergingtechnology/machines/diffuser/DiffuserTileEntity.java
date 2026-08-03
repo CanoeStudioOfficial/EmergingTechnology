@@ -5,6 +5,7 @@ import io.moonman.emergingtechnology.handlers.energy.ConsumerEnergyStorageHandle
 import io.moonman.emergingtechnology.handlers.energy.EnergyStorageHandler;
 import io.moonman.emergingtechnology.handlers.fluid.FluidStorageHandler;
 import io.moonman.emergingtechnology.helpers.machines.DiffuserHelper;
+import io.moonman.emergingtechnology.integration.crafttweaker.AgricultureTweaker;
 import io.moonman.emergingtechnology.init.Reference;
 import io.moonman.emergingtechnology.machines.classes.tile.EnumTileField;
 import io.moonman.emergingtechnology.machines.classes.tile.MachineTileBase;
@@ -43,7 +44,7 @@ public class DiffuserTileEntity extends MachineTileBase implements SimpleCompone
 
             Fluid fluid = fluidStack.getFluid();
 
-            return ScrubberRecipes.isValidGas(fluid);
+            return ScrubberRecipes.isValidGas(fluid) || AgricultureTweaker.isRegisteredGas(fluid);
         }
     };
 

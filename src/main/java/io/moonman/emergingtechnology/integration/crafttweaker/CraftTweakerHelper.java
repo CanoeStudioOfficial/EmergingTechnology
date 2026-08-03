@@ -45,6 +45,9 @@ public class CraftTweakerHelper {
 		CraftTweakerAPI.registerClass(Hydroponic.class);
 		CraftTweakerAPI.registerClass(Light.class);
 		CraftTweakerAPI.registerClass(Scrubber.class);
+		CraftTweakerAPI.registerClass(AgricultureTweaker.Harvester.class);
+		CraftTweakerAPI.registerClass(AgricultureTweaker.Filler.class);
+		CraftTweakerAPI.registerClass(AgricultureTweaker.Diffuser.class);
 		CraftTweakerAPI.registerClass(Cooker.class);
 		CraftTweakerAPI.registerClass(Fabricator.class);
 		CraftTweakerAPI.registerClass(Processor.class);

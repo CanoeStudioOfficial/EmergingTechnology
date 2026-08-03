@@ -9,6 +9,7 @@ import io.moonman.emergingtechnology.item.hydroponics.nozzles.NozzleBase;
 import io.moonman.emergingtechnology.item.hydroponics.nozzles.NozzleLong;
 import io.moonman.emergingtechnology.item.hydroponics.nozzles.NozzlePrecise;
 import io.moonman.emergingtechnology.item.hydroponics.nozzles.NozzleSmart;
+import io.moonman.emergingtechnology.integration.crafttweaker.AgricultureTweaker;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
@@ -17,6 +18,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.FluidTank;
+import net.minecraftforge.fluids.Fluid;
 
 /**
  * Provides useful methods for the Diffuser
@@ -95,9 +97,12 @@ public class DiffuserHelper {
     }
 
     public static int boostSurroundingPlants(World world, BlockPos pos, FluidTank gasHandler, int nozzleId) {
-
-        return doBoost(world, pos, gasHandler, getBaseBoost() * getNozzleBoostModifierById(nozzleId),
-                getBaseRange() * getNozzleRangeModifierById(nozzleId));
+        Fluid fluid = gasHandler.getFluid() == null ? null : gasHandler.getFluid().getFluid();
+        double multiplier = AgricultureTweaker.getDiffuserMultiplier(fluid);
+        int customRange = AgricultureTweaker.getDiffuserRange(fluid);
+        int probability = (int) (getBaseBoost() * getNozzleBoostModifierById(nozzleId) * multiplier);
+        int range = customRange > 0 ? customRange : getBaseRange() * getNozzleRangeModifierById(nozzleId);
+        return doBoost(world, pos, gasHandler, probability, range);
     }
 
     private static int doBoost(World world, BlockPos pos, FluidTank gasHandler, int probability, int range) {
