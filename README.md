@@ -17,6 +17,7 @@ With **coremod and mixin support** that is easy to configure.
 
 ### Notes:
 - JEI support: all recipe-based machines have their own JEI recipe category and machine catalyst, including Optimiser. Machines without a conventional recipe list—Harvester, Filler, Diffuser, Piezoelectric, Tidal Generator, Solar, Solar Glass, Wind, and Battery—are registered as JEI information entries so their purpose is visible when looking up the block.
+- JEI also includes a `Functional Machine Guide` category with GUI workflow entries for agricultural machines and machines without normal item recipes. These entries show representative inputs, outputs where applicable, and the machine's actual operating conditions.
 - CraftTweaker CRT support is provided through separate ZenScript classes for each machine with an independent recipe table: `Biomass`, `Bioreactor`, `AlgaeBioreactor`, `Cooker`, `Fabricator`, `Processor`, `Scaffolder`, `Shredder`, `Injector`, `Optimiser`, `Collector`, `Hydroponic`, `Light`, and `Scrubber`.
 - The APIs are intentionally split by machine. Do not treat them as one shared functional-block interface; each class can define machine-specific methods and parameters as its recipe model evolves. For example: `mods.emergingtechnology.Collector.addRecipe(<minecraft:paper>, <minecraft:iron_ingot>);`
 - Every currently exposed recipe-table class supports `addRecipe(output, input)`, `removeRecipe(output)`, and `removeAll()`. Machine-specific extensions should be added to the corresponding class only.

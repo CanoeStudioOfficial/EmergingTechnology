@@ -22,6 +22,9 @@ import io.moonman.emergingtechnology.integration.jei.machines.injector.InjectorR
 import io.moonman.emergingtechnology.integration.jei.machines.light.LightCategory;
 import io.moonman.emergingtechnology.integration.jei.machines.light.LightRecipeWrapper;
 import io.moonman.emergingtechnology.integration.jei.machines.optimiser.OptimiserCategory;
+import io.moonman.emergingtechnology.integration.jei.machines.functional.MachineGuideCategory;
+import io.moonman.emergingtechnology.integration.jei.machines.functional.MachineGuideRecipe;
+import io.moonman.emergingtechnology.integration.jei.machines.functional.MachineGuideRecipes;
 import io.moonman.emergingtechnology.integration.jei.machines.processor.ProcessorCategory;
 import io.moonman.emergingtechnology.integration.jei.machines.processor.ProcessorRecipeWrapper;
 import io.moonman.emergingtechnology.integration.jei.machines.scaffolder.ScaffolderCategory;
@@ -103,7 +106,8 @@ public class JEIIntegration implements IModPlugin {
                 new CookerCategory(helper), new FabricatorCategory(helper), new BioreactorCategory(helper),
                 new ScaffolderCategory(helper), new CollectorCategory(helper), new BiomassCategory(helper),
                 new ScrubberCategory(helper), new AlgaeBioreactorCategory(helper), new InjectorCategory(helper),
-                new LightCategory(helper), new HydroponicCategory(helper), new OptimiserCategory(helper));
+                new LightCategory(helper), new HydroponicCategory(helper), new OptimiserCategory(helper),
+                new MachineGuideCategory(helper));
     }
 
     @Override
@@ -182,6 +186,22 @@ public class JEIIntegration implements IModPlugin {
         registry.addRecipes(OptimiserRecipes.getRecipes(), MachineReference.OPTIMISER_UID);
         registry.addRecipeCatalyst(new ItemStack(ModBlocks.optimiser), MachineReference.OPTIMISER_UID);
         registry.addRecipeClickArea(OptimiserGui.class, 39, 38, 34, 10, MachineReference.OPTIMISER_UID);
+
+        registry.addRecipes(MachineGuideRecipes.getRecipes(), MachineGuideCategory.UID);
+        registry.addRecipeCatalyst(new ItemStack(ModBlocks.harvester), MachineGuideCategory.UID);
+        registry.addRecipeCatalyst(new ItemStack(ModBlocks.filler), MachineGuideCategory.UID);
+        registry.addRecipeCatalyst(new ItemStack(ModBlocks.diffuser), MachineGuideCategory.UID);
+        registry.addRecipeCatalyst(new ItemStack(ModBlocks.hydroponic), MachineGuideCategory.UID);
+        registry.addRecipeCatalyst(new ItemStack(ModBlocks.light), MachineGuideCategory.UID);
+        registry.addRecipeCatalyst(new ItemStack(ModBlocks.scrubber), MachineGuideCategory.UID);
+        registry.addRecipeCatalyst(new ItemStack(ModBlocks.injector), MachineGuideCategory.UID);
+        registry.addRecipeCatalyst(new ItemStack(ModBlocks.biomassgenerator), MachineGuideCategory.UID);
+        registry.addRecipeCatalyst(new ItemStack(ModBlocks.solar), MachineGuideCategory.UID);
+        registry.addRecipeCatalyst(new ItemStack(ModBlocks.solarglass), MachineGuideCategory.UID);
+        registry.addRecipeCatalyst(new ItemStack(ModBlocks.wind), MachineGuideCategory.UID);
+        registry.addRecipeCatalyst(new ItemStack(ModBlocks.tidalgenerator), MachineGuideCategory.UID);
+        registry.addRecipeCatalyst(new ItemStack(ModBlocks.piezoelectric), MachineGuideCategory.UID);
+        registry.addRecipeCatalyst(new ItemStack(ModBlocks.battery), MachineGuideCategory.UID);
 
         addMachineInfo(registry, ModBlocks.harvester, "jei.emergingtechnology.harvester.info");
         addMachineInfo(registry, ModBlocks.filler, "jei.emergingtechnology.filler.info");

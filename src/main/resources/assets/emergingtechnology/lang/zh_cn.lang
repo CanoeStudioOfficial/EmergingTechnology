@@ -403,7 +403,7 @@ jei.emergingtechnology.cooker.info=使用类似熔炉的配方烹饪支持的食
 jei.emergingtechnology.bioreactor.info=将生物输入转换为合成产物，有效转换显示在生物组织反应机分类中。
 jei.emergingtechnology.scaffolder.info=使用脚手架和支持的样本制造合成产物，脚手架槽与配方输入槽分开。
 jei.emergingtechnology.algaebioreactor.info=使用物品输入培养藻类，需要有效的气体和流体输入，有效物品转换会显示在 JEI 中。
-jei.emergingtechnology.optimiser.info=使用可配置的核心数量优化注册的输入，有效输入显示在算法优化器分类中。
+jei.emergingtechnology.optimiser.info=算法优化器用于优化兼容机器的处理流程。左侧放入物品或矿辞输入，中间显示优化处理过程，右侧表示处理后的结果。运行时需要能量，并根据配方要求安装对应数量的优化核心。可用输入和核心需求请查看算法优化器配方分类。
 
 jei.recipe.processor.info=加工机将支持的输入转换为显示的输出。输入可以是物品或矿辞，运行时需要消耗能量。
 jei.recipe.shredder.info=切碎机将废料和其他支持的物品分解为可回收材料，产物数量会显示在输出槽中。
@@ -418,7 +418,22 @@ jei.recipe.algaebioreactor.info=藻类生物反应机使用列出的物品输入
 jei.recipe.injector.info=营养注射器消耗列出的输入并将其注入机器流程，生成显示的输出，运行时可能还需要能量和流体。
 jei.recipe.light.info=水培生长灯接受列出的灯泡物品作为光源，为附近的水培作物提供人工光照。
 jei.recipe.hydroponic.info=水培生长床接受列出的培养介质，为支持的作物提供种植区域，并配合水和营养物质促进生长。
-jei.recipe.optimiser.info=算法优化器注册物品或矿辞输入进行优化，所需核心数量由配方决定，并提升兼容流程的处理效果。
+jei.recipe.optimiser.info=算法优化器将左侧的物品或矿辞输入注册为可优化对象。机器运行时会消耗能量，并根据该配方要求的核心数量提升兼容处理流程的效果。右侧为空表示该配方用于配置优化对象，而不是直接生成物品。
+jei.functional_machine_guide.title=功能性机器流程
+jei.guide.harvester=种子在农作物旁由农作机械臂种植；作物成熟后，机器进行收获并收集掉落物。不同模组作物会沿用其自身的成熟和收获机制。
+jei.guide.filler=注水机生成水或已配置的流体，并将流体传输给相邻的流体容器。传输量由配置和 CRT 设置决定。
+jei.guide.diffuser=扩散器消耗气体和能量，将气体扩散到附近植物并尝试促进生长。喷嘴会影响范围和效果。
+jei.guide.hydroponic=水培生长床提供作物生长区域，需要有效培养介质、水和其他农业设备的辅助。
+jei.guide.light=水培生长灯使用灯泡提供人工光照，帮助附近水培作物生长。
+jei.guide.scrubber=洗涤器接收允许的气体并处理固体输入，清除污染后生成对应的固体产物。
+jei.guide.injector=营养注射器将流体和物品注入农业流程，为水培系统提供营养支持。
+jei.guide.biomass=生物质发电机消耗生物质类燃料并产生能量，输入和能量效率以机器配置为准。
+jei.guide.solar=太阳能发电机在有阳光时产生能量，夜晚或被遮挡时无法正常发电。
+jei.guide.solarglass=太阳能玻璃是太阳能结构的透明组件，可以在不完全遮挡光线的情况下参与太阳能发电布局。
+jei.guide.wind=风力发电机根据周围可用空间和风力条件产生能量。
+jei.guide.tidal=潮汐发电机利用附近的水体环境产生能量。
+jei.guide.piezoelectric=压电发电机通过方块互动和环境活动产生能量。
+jei.guide.battery=电池储存能量，并通过相邻面向连接的机器输入或输出能量。
 
 # Aquaponic blocks
 item.emergingtechnology.aquaponicblock.name=水产养殖框架
