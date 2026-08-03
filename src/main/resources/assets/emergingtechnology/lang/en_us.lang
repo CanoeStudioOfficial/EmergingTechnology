@@ -6,6 +6,16 @@ item.emergingtechnology.harvester.name=Harvester
 item.emergingtechnology.filler.name=Water Filler
 item.emergingtechnology.scrubber.name=CO2 Scrubber
 item.emergingtechnology.diffuser.name=CO2 Diffuser
+
+jei.emergingtechnology.harvester.info=Harvests mature crops and collects their drops. It can also plant supported crops from its input slot.
+jei.emergingtechnology.filler.info=Generates and transfers configured fluids to adjacent fluid handlers.
+jei.emergingtechnology.diffuser.info=Uses accepted gases and energy to accelerate nearby plant growth.
+jei.emergingtechnology.piezoelectric.info=Generates energy from block interaction and environmental activity.
+jei.emergingtechnology.tidal.info=Generates energy from nearby water movement.
+jei.emergingtechnology.solar.info=Generates energy from sunlight.
+jei.emergingtechnology.solarglass.info=Transparent solar component used with solar generation setups.
+jei.emergingtechnology.wind.info=Generates energy from available wind space.
+jei.emergingtechnology.battery.info=Stores and transfers energy for connected machines.
 item.emergingtechnology.injector.name=Nutrient Injector
 item.emergingtechnology.light.name=Hydroponic Grow Light
 item.emergingtechnology.frame.name=Hydroponic Frame
