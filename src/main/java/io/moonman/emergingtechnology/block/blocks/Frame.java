@@ -38,7 +38,7 @@ public class Frame extends Block {
         this.setHardness(1.0f);
         this.setLightOpacity(0);
         this.setRegistryName(EmergingTechnology.MODID, _name);
-        this.setUnlocalizedName(EmergingTechnology.MODID + "." + _name);
+        this.setTranslationKey(EmergingTechnology.MODID + "." + _name);
         this.setCreativeTab(EmergingTechnology.TECHNOLOGYTAB);
         this.setSoundType(SoundType.METAL);
     }
@@ -101,7 +101,7 @@ public class Frame extends Block {
 
     @Override
     public IBlockState getStateFromMeta(int meta) {
-        EnumFacing facing = EnumFacing.getHorizontal(meta);
+        EnumFacing facing = EnumFacing.byHorizontalIndex(meta);
         return this.getDefaultState().withProperty(PROPERTYFACING, facing);
     }
 

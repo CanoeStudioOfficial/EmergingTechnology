@@ -45,7 +45,7 @@ public class SolarGlass extends SimpleMachineBase implements ITileEntityProvider
 
     @SideOnly(Side.CLIENT)
     @Override
-    public BlockRenderLayer getBlockLayer() {
+    public BlockRenderLayer getRenderLayer() {
         return BlockRenderLayer.TRANSLUCENT;
     }
 
@@ -140,7 +140,7 @@ public class SolarGlass extends SimpleMachineBase implements ITileEntityProvider
 
     @Override
     public IBlockState getStateFromMeta(int meta) {
-        EnumFacing facing = EnumFacing.getHorizontal(meta);
+        EnumFacing facing = EnumFacing.byHorizontalIndex(meta);
         return this.getDefaultState().withProperty(FACING, facing);
     }
 

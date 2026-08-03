@@ -11,7 +11,7 @@ public TechnologyTab(String label) {
 }
 
 @Override
-public ItemStack getTabIconItem() {
+public ItemStack createIcon() {
 	return new ItemStack(ModItems.hydroponic);
 }
 

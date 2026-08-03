@@ -22,7 +22,7 @@ public class ClearPlasticBlock extends BlockBreakable {
     super(Material.GLASS, false);
     this.setHardness(1.0f);
     this.setRegistryName(EmergingTechnology.MODID, _name);
-    this.setUnlocalizedName(EmergingTechnology.MODID + "." + _name);
+    this.setTranslationKey(EmergingTechnology.MODID + "." + _name);
     this.setCreativeTab(EmergingTechnology.TECHNOLOGYTAB);
     this.setSoundType(SoundType.STONE);
     this.setLightOpacity(0);
@@ -30,7 +30,7 @@ public class ClearPlasticBlock extends BlockBreakable {
 
   @SideOnly(Side.CLIENT)
   @Override
-  public BlockRenderLayer getBlockLayer() {
+  public BlockRenderLayer getRenderLayer() {
     return BlockRenderLayer.TRANSLUCENT;
   }
 
