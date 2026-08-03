@@ -197,9 +197,14 @@ The machine classes are deliberately separate implementations. Several machines 
 Harvester, Filler, and Diffuser use independent behavior APIs rather than item recipe APIs:
 
 ```zenscript
-// Register a crop block that the Harvester may recognize.
-mods.emergingtechnology.Harvester.registerCrop(<modid:custom_crop>, true);
-mods.emergingtechnology.Harvester.removeCrop(<modid:custom_crop>);
+// Register vanilla crops by their seed item.
+mods.emergingtechnology.Harvester.registerCrop(<minecraft:wheat_seeds>, true);
+mods.emergingtechnology.Harvester.registerCrop(<minecraft:carrot>, true);
+mods.emergingtechnology.Harvester.registerCrop(<minecraft:potato>, true);
+
+// A mod crop can be registered with its seed item or block item.
+mods.emergingtechnology.Harvester.registerCrop(<modid:custom_crop_seed>, true);
+mods.emergingtechnology.Harvester.removeCrop(<minecraft:carrot>);
 mods.emergingtechnology.Harvester.removeAllCrops();
 
 // Allow Filler to generate and transfer a fluid at the requested rate.
@@ -213,7 +218,22 @@ mods.emergingtechnology.Diffuser.removeGas("co2");
 mods.emergingtechnology.Diffuser.removeAllGases();
 ```
 
-`registerCrop` uses the crop block's normal Minecraft drop logic for maturity and harvesting. `allowFluid` adds a fluid source to the Filler and controls its transfer amount. `allowGas` adds a gas to the Diffuser's accepted gas list; the existing nozzle and growth logic remain active.
+`registerCrop` accepts a seed item or block item. For vanilla crops, use `<minecraft:wheat_seeds>`, `<minecraft:carrot>`, or `<minecraft:potato>`; for a modded crop, use that mod's seed item or crop block item. The crop's normal Minecraft drop logic is still used for maturity and harvesting. `allowFluid` adds a fluid source to the Filler and controls its transfer amount. `allowGas` adds a gas to the Diffuser's accepted gas list; the existing nozzle and growth logic remain active.
+
+Examples for other farming mods:
+
+```zenscript
+// Agricraft: register the Agricraft crop block.
+mods.emergingtechnology.Harvester.registerCrop(<agricraft:crop>, true);
+
+// Mystical Agriculture: register a seed item.
+mods.emergingtechnology.Harvester.registerCrop(<mysticalagriculture:inferium_seeds>, true);
+
+// Actually Additions: use the crop block or seed item for the installed version.
+mods.emergingtechnology.Harvester.registerCrop(<actuallyadditions:block_canola>, true);
+```
+
+Registry names can vary between mod versions. Check the item or block ID shown by JEI before adding it. A harvested item such as wheat, tomato, or essence is not automatically a crop block; pass the crop block item or a seed item instead.
 - Dependencies script in [gradle/scripts/dependencies.gradle](gradle/scripts/dependencies.gradle), explanations are commented in the file.
 - Publishing script in [gradle/scripts/publishing.gradle](gradle/scripts/publishing.gradle).
 - When writing Mixins on IntelliJ, it is advisable to use latest [MinecraftDev Fork for RetroFuturaGradle](https://github.com/eigenraven/MinecraftDev/releases).

@@ -8,6 +8,7 @@ import crafttweaker.IAction;
 import crafttweaker.api.item.IItemStack;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
+import net.minecraft.init.Blocks;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 import stanhebben.zenscript.annotations.ZenClass;
@@ -56,13 +57,17 @@ public final class AgricultureTweaker {
     public static class Harvester {
         @ZenMethod
         public static void registerCrop(IItemStack crop, boolean replant) {
-            Block block = Block.getBlockFromItem(toStack(crop).getItem());
+            ItemStack stack = toStack(crop);
+            Block block = Block.getBlockFromItem(stack.getItem());
+            block = cropBlock(stack, block);
             if (block != null) CraftTweakerAPI.apply(new CropAction(block, replant, true));
         }
 
         @ZenMethod
         public static void removeCrop(IItemStack crop) {
-            Block block = Block.getBlockFromItem(toStack(crop).getItem());
+            ItemStack stack = toStack(crop);
+            Block block = Block.getBlockFromItem(stack.getItem());
+            block = cropBlock(stack, block);
             if (block != null) CraftTweakerAPI.apply(new CropAction(block, false, false));
         }
 
@@ -153,6 +158,15 @@ public final class AgricultureTweaker {
 
     private static ItemStack toStack(IItemStack stack) {
         return stack == null ? ItemStack.EMPTY : (ItemStack) stack.getInternal();
+    }
+
+    private static Block cropBlock(ItemStack stack, Block block) {
+        if (block != null && block != Blocks.AIR) return block;
+        String name = stack.getItem().getRegistryName() == null ? "" : stack.getItem().getRegistryName().toString();
+        if (name.equals("minecraft:wheat_seeds")) return Blocks.WHEAT;
+        if (name.equals("minecraft:carrot")) return Blocks.CARROTS;
+        if (name.equals("minecraft:potato")) return Blocks.POTATOES;
+        return block;
     }
 
     private static class DiffuserConfig {
