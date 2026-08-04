@@ -5,7 +5,6 @@ import javax.annotation.Nullable;
 
 import io.moonman.emergingtechnology.EmergingTechnology;
 import io.moonman.emergingtechnology.integration.jei.machines.MachineReference;
-import io.moonman.emergingtechnology.integration.jei.JEITextHelper;
 import io.moonman.emergingtechnology.integration.jei.machines.processor.ProcessorRecipeWrapper;
 import mezz.jei.api.IGuiHelper;
 import mezz.jei.api.gui.IDrawable;
@@ -22,7 +21,7 @@ public class OptimiserCategory implements IRecipeCategory<ProcessorRecipeWrapper
 
     public OptimiserCategory(IGuiHelper helper) {
         background = helper.createDrawable(new ResourceLocation(
-                EmergingTechnology.MODID + ":textures/jei/processorgui.png"), 0, 0, 175, 80);
+                EmergingTechnology.MODID + ":textures/gui/optimisergui.png"), 0, 0, 175, 80);
         title = MachineReference.OPTIMISER_NAME;
     }
 
@@ -47,7 +46,6 @@ public class OptimiserCategory implements IRecipeCategory<ProcessorRecipeWrapper
 
     @Override
     public void drawExtras(@Nonnull Minecraft minecraft) {
-        JEITextHelper.drawDescription(minecraft, "jei.recipe.optimiser.info");
     }
 
     @Override

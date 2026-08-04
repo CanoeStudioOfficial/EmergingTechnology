@@ -5,7 +5,6 @@ import javax.annotation.Nullable;
 
 import io.moonman.emergingtechnology.EmergingTechnology;
 import io.moonman.emergingtechnology.integration.jei.machines.MachineReference;
-import io.moonman.emergingtechnology.integration.jei.JEITextHelper;
 import mezz.jei.api.IGuiHelper;
 import mezz.jei.api.gui.IDrawable;
 import mezz.jei.api.gui.IGuiItemStackGroup;
@@ -18,7 +17,7 @@ import net.minecraft.util.ResourceLocation;
 public class HydroponicCategory implements IRecipeCategory<HydroponicRecipeWrapper> {
 
     public static final ResourceLocation TEXTURE = new ResourceLocation(
-        EmergingTechnology.MODID + ":textures/jei/processorgui.png");
+        EmergingTechnology.MODID + ":textures/gui/hydroponicgui.png");
 
     private static final int INPUT_SLOT = 0;
     private static final int OUTPUT_SLOT = 1;
@@ -65,7 +64,6 @@ public class HydroponicCategory implements IRecipeCategory<HydroponicRecipeWrapp
 
     @Override
     public void drawExtras(@Nonnull Minecraft minecraft) {
-        JEITextHelper.drawDescription(minecraft, "jei.recipe.hydroponic.info");
     }
 
     @Override

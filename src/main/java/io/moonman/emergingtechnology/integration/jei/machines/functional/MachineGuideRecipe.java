@@ -4,16 +4,15 @@ import net.minecraft.item.ItemStack;
 import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.ingredients.VanillaTypes;
 import mezz.jei.api.recipe.IRecipeWrapper;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.resources.I18n;
-import java.util.List;
 
 public class MachineGuideRecipe implements IRecipeWrapper {
     private final ItemStack input;
     private final ItemStack output;
     private final String descriptionKey;
+    private final String machineId;
 
-    public MachineGuideRecipe(ItemStack input, ItemStack output, String descriptionKey) {
+    public MachineGuideRecipe(String machineId, ItemStack input, ItemStack output, String descriptionKey) {
+        this.machineId = machineId;
         this.input = input;
         this.output = output;
         this.descriptionKey = descriptionKey;
@@ -22,6 +21,7 @@ public class MachineGuideRecipe implements IRecipeWrapper {
     public ItemStack getInput() { return input; }
     public ItemStack getOutput() { return output; }
     public String getDescriptionKey() { return descriptionKey; }
+    public String getMachineId() { return machineId; }
 
     @Override
     public void getIngredients(IIngredients ingredients) {
@@ -29,14 +29,4 @@ public class MachineGuideRecipe implements IRecipeWrapper {
         if (!output.isEmpty()) ingredients.setOutput(VanillaTypes.ITEM, output);
     }
 
-    @Override
-    public void drawInfo(Minecraft minecraft, int recipeWidth, int recipeHeight, int mouseX, int mouseY) {
-        List<String> lines = minecraft.fontRenderer.listFormattedStringToWidth(
-                I18n.format(descriptionKey), 165);
-        int y = 2;
-        for (String line : lines) {
-            minecraft.fontRenderer.drawString(line, 2, y, 0x404040);
-            y += 9;
-        }
-    }
 }

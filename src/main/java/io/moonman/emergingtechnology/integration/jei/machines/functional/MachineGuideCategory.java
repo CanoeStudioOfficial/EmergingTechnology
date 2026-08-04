@@ -15,21 +15,24 @@ import net.minecraft.client.resources.I18n;
 import net.minecraft.util.ResourceLocation;
 
 public class MachineGuideCategory implements IRecipeCategory<MachineGuideRecipe> {
-    public static final String UID = EmergingTechnology.MODID + ":functional_machine_guide";
+    private final String uid;
+    private final String titleKey;
     private final IDrawable background;
 
-    public MachineGuideCategory(IGuiHelper helper) {
+    public MachineGuideCategory(IGuiHelper helper, String uid, String titleKey, String texture) {
+        this.uid = uid;
+        this.titleKey = titleKey;
         background = helper.createDrawable(new ResourceLocation(
-                EmergingTechnology.MODID + ":textures/jei/processorgui.png"), 0, 0, 175, 80);
+                EmergingTechnology.MODID + ":textures/gui/" + texture + ".png"), 0, 0, 175, 80);
     }
 
     @Nonnull
     @Override
-    public String getUid() { return UID; }
+    public String getUid() { return uid; }
 
     @Nonnull
     @Override
-    public String getTitle() { return I18n.format("jei.functional_machine_guide.title"); }
+    public String getTitle() { return I18n.format(titleKey); }
 
     @Override
     public String getModName() { return EmergingTechnology.NAME; }

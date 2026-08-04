@@ -107,7 +107,20 @@ public class JEIIntegration implements IModPlugin {
                 new ScaffolderCategory(helper), new CollectorCategory(helper), new BiomassCategory(helper),
                 new ScrubberCategory(helper), new AlgaeBioreactorCategory(helper), new InjectorCategory(helper),
                 new LightCategory(helper), new HydroponicCategory(helper), new OptimiserCategory(helper),
-                new MachineGuideCategory(helper));
+                new MachineGuideCategory(helper, guideUid("harvester"), "jei.guide.harvester.title", "harvestergui"),
+                new MachineGuideCategory(helper, guideUid("filler"), "jei.guide.filler.title", "filler"),
+                new MachineGuideCategory(helper, guideUid("diffuser"), "jei.guide.diffuser.title", "diffusergui"),
+                new MachineGuideCategory(helper, guideUid("hydroponic"), "jei.guide.hydroponic.title", "hydroponicgui"),
+                new MachineGuideCategory(helper, guideUid("light"), "jei.guide.light.title", "lightgui"),
+                new MachineGuideCategory(helper, guideUid("scrubber"), "jei.guide.scrubber.title", "scrubbergui"),
+                new MachineGuideCategory(helper, guideUid("injector"), "jei.guide.injector.title", "injectorgui"),
+                new MachineGuideCategory(helper, guideUid("biomass"), "jei.guide.biomass.title", "biomassgui"),
+                new MachineGuideCategory(helper, guideUid("solar"), "jei.guide.solar.title", "biomassgui"),
+                new MachineGuideCategory(helper, guideUid("solarglass"), "jei.guide.solarglass.title", "processorgui"),
+                new MachineGuideCategory(helper, guideUid("wind"), "jei.guide.wind.title", "injectorgui"),
+                new MachineGuideCategory(helper, guideUid("tidal"), "jei.guide.tidal.title", "collectorgui"),
+                new MachineGuideCategory(helper, guideUid("piezoelectric"), "jei.guide.piezoelectric.title", "algaebioreactorgui"),
+                new MachineGuideCategory(helper, guideUid("battery"), "jei.guide.battery.title", "batterygui"));
     }
 
     @Override
@@ -187,8 +200,21 @@ public class JEIIntegration implements IModPlugin {
         registry.addRecipeCatalyst(new ItemStack(ModBlocks.optimiser), MachineReference.OPTIMISER_UID);
         registry.addRecipeClickArea(OptimiserGui.class, 39, 38, 34, 10, MachineReference.OPTIMISER_UID);
 
-        registry.addRecipes(MachineGuideRecipes.getRecipes(), MachineGuideCategory.UID);
-        registry.addRecipeCatalyst(new ItemStack(ModBlocks.harvester), MachineGuideCategory.UID);
+        registerGuide(registry, "harvester", ModBlocks.harvester);
+        registerGuide(registry, "filler", ModBlocks.filler);
+        registerGuide(registry, "diffuser", ModBlocks.diffuser);
+        registerGuide(registry, "hydroponic", ModBlocks.hydroponic);
+        registerGuide(registry, "light", ModBlocks.light);
+        registerGuide(registry, "scrubber", ModBlocks.scrubber);
+        registerGuide(registry, "injector", ModBlocks.injector);
+        registerGuide(registry, "biomass", ModBlocks.biomassgenerator);
+        registerGuide(registry, "solar", ModBlocks.solar);
+        registerGuide(registry, "solarglass", ModBlocks.solarglass);
+        registerGuide(registry, "wind", ModBlocks.wind);
+        registerGuide(registry, "tidal", ModBlocks.tidalgenerator);
+        registerGuide(registry, "piezoelectric", ModBlocks.piezoelectric);
+        registerGuide(registry, "battery", ModBlocks.battery);
+        /*
         registry.addRecipeCatalyst(new ItemStack(ModBlocks.filler), MachineGuideCategory.UID);
         registry.addRecipeCatalyst(new ItemStack(ModBlocks.diffuser), MachineGuideCategory.UID);
         registry.addRecipeCatalyst(new ItemStack(ModBlocks.hydroponic), MachineGuideCategory.UID);
@@ -202,6 +228,7 @@ public class JEIIntegration implements IModPlugin {
         registry.addRecipeCatalyst(new ItemStack(ModBlocks.tidalgenerator), MachineGuideCategory.UID);
         registry.addRecipeCatalyst(new ItemStack(ModBlocks.piezoelectric), MachineGuideCategory.UID);
         registry.addRecipeCatalyst(new ItemStack(ModBlocks.battery), MachineGuideCategory.UID);
+        */
 
         addMachineInfo(registry, ModBlocks.harvester, "jei.emergingtechnology.harvester.info");
         addMachineInfo(registry, ModBlocks.filler, "jei.emergingtechnology.filler.info");
@@ -231,6 +258,15 @@ public class JEIIntegration implements IModPlugin {
 
     private static void addMachineInfo(IModRegistry registry, net.minecraft.block.Block block, String key) {
         registry.addIngredientInfo(new ItemStack(block), VanillaTypes.ITEM, key);
+    }
+
+    private static String guideUid(String machine) {
+        return EmergingTechnology.MODID + ":guide_" + machine;
+    }
+
+    private static void registerGuide(IModRegistry registry, String machine, net.minecraft.block.Block block) {
+        registry.addRecipes(MachineGuideRecipes.getRecipes(machine), guideUid(machine));
+        registry.addRecipeCatalyst(new ItemStack(block), guideUid(machine));
     }
 
     public static boolean doesOreExist(String key) {
